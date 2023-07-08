@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  jms-artemis:
+    image: quay.io/artemiscloud/activemq-artemis-broker:artemis.2.27.0
+    ports:
+      - "8161:8161"
+      - "61616:61616"
+      - "5672:5672"
+    environment:
+      - AMQ_USER=artemis
+      - AMQ_PASSWORD=artemis
+    networks:
+      - brokers-network
+networks:
+  brokers-network: {}
