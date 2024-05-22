@@ -1,5 +1,22 @@
 spring:
   application:
     name: server
+  security:
+    oauth2:
+      client:
+        registration:
+          oauth2-spring-client:
+            client-id: oauth2-spring-client
+            client-secret: 2hx5qETzvnOa4NVS1MrtoCBdLoJuUnlX
+            scope:
+              - openid
+              - profile
+              - roles
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8081/login/oauth2/code/oauth2-spring-client
+        provider:
+          oauth2-spring-client:
+            issuer-uri: http://localhost:8080/realms/oauth2-realm
+          
 server:
   port: 8081
